@@ -18,14 +18,21 @@ return new class extends Migration
             $table->bigInteger('telefono');
             $table->string('comision');
             $table->string('carrera');
-            $table->string('link_redes');
-            $table->boolean('is_admin');
-            $table->string('foto');
+            $table->boolean('is_admin')->default(false);
             $table->text('acerca_de');
+            $table->string('foto')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('redes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('platform');   // ej: Facebook, Instagram, Twitter
+            $table->string('link');       // URL a la red social
             $table->timestamps();
         });
 
