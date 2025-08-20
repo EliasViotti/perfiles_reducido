@@ -8,7 +8,7 @@
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
 
     <div class="w-full max-w-md bg-gray-800 p-8 rounded-lg shadow-lg">
-        <a href="{{ url('/') }}" 
+        <a href="{{ route('welcome') }}" 
                 class="text-sm text-blue-400 hover:text-blue-500 justify-left flex">
                     < Volver al inicio 
         </a>
